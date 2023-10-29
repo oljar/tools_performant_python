@@ -5,7 +5,7 @@ from decorator import *
 x1,x2,y1,y2 = -1.8,1.8,-1.8,1.8
 c_real, c_imag = -0.62772, -0.42193
 
-@decor
+
 def calc_pure_python(desired_width, max_iterations):
     x_step = (x2-x1)/desired_width
     y_step = (y1-y2)/desired_width
@@ -35,7 +35,7 @@ def calc_pure_python(desired_width, max_iterations):
     print("Działanie funkcji" + calculate_z_serial_purepython.__name__+ "  trwało ", secs, " s")
     assert sum(output)==33219980
 
-
+@decor
 def calculate_z_serial_purepython(maxiter,zs,cs):
     output = [0]*len (zs)
     for i in range(len (zs)):
@@ -48,12 +48,13 @@ def calculate_z_serial_purepython(maxiter,zs,cs):
             n +=1
         output[i] = n
     return output
+print(__name__)
 
 if  __name__ == "__main__":
 
 
     calc_pure_python(desired_width = 1000, max_iterations=300)
-
+    print(__name__)
 
 
 
